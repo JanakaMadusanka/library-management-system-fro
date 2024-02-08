@@ -19,16 +19,16 @@
           <td>{{book.author}}</td>
           <td>{{book.category}}</td>
           <td>{{book.qty}}</td>
-          <td><button (click)="getSelectedBook(book)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash3"></i></button></td>
-          <td><button (click)="updateBook()" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
+          <td><button (click)="getSelectedBook(book)" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash3"></i></button></td>
+          <td><button (click)="getSelectedBook(book)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal" data-bs-whatever="@getbootstrap"><i class="bi bi-pencil-square"></i></button></td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
+</div> 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Delete-->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -36,11 +36,75 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you suere, Do you want to delete the book?
+        Are you suere, Do you want to delete the {{selectedBook?.title}}?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button (click)="deleteBook()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+        <button (click)="deleteBook()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Update conrormation-->
+<div class="modal fade" id="conformationUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Conformation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you suere, Do you want to update the changes in the {{selectedBook?.title}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="updateBook()" type="button" class="btn btn-danger" data-bs-dismiss="modal">Confirm Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Update-->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="book-id" class="col-form-label">ISBN:</label>
+            <input type="text" value="{{selectedBook?.id}}" disabled class="form-control" id="book-id">
+          </div>
+          <div class="mb-3">
+            <label for="book-isbn" class="col-form-label">ISBN:</label>
+            <input type="text" value="{{selectedBook?.isbn}}" disabled class="form-control" id="book-isbn">
+          </div>
+          <div class="mb-3">
+            <label for="book-title" class="col-form-label">Title:</label>
+            <input type="text" value="{{selectedBook?.title}}" disabled class="form-control" id="book-title">
+          </div>
+          <div class="mb-3">
+            <label for="book-auther" class="col-form-label">Auther:</label>
+            <input type="text" value="{{selectedBook?.author}}" disabled class="form-control" id="book-auther">
+          </div>
+          <div class="mb-3">
+            <label for="book-category" class="col-form-label">Category:</label>
+            <input type="text" [(ngModel)]="selectedBook && selectedBook.category" [ngModelOptions]="{standalone:true}" class="form-control" id="book-category">
+          </div>
+          <div class="mb-3">
+            <label for="book-qty" class="col-form-label">QTY:</label>
+            <input type="number" [(ngModel)]="selectedBook && selectedBook.qty" [ngModelOptions]="{standalone:true}" class="form-control" id="book-qty">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#conformationUpdate" data-bs-whatever="@getbootstrap">Update</button>
       </div>
     </div>
   </div>
