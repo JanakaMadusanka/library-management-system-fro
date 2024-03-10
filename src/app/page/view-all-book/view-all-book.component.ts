@@ -26,14 +26,14 @@ export class ViewAllBookComponent implements OnInit {
   }
 
   loadBooks() {
-    this.http.get('http://localhost:8080/book/get').subscribe((data) => {
+    this.http.get('http://localhost:8081/book/get').subscribe((data) => {
       this.bookList = data;
       console.log(this.bookList);
     });
   }
 
   deleteBook() {
-    this.http.delete('http://localhost:8080/book/' + this.selectedBook.id, { responseType: 'text' }).subscribe((data) => {
+    this.http.delete('http://localhost:8081/book/' + this.selectedBook.id, { responseType: 'text' }).subscribe((data) => {
       this.loadBooks();
       console.log(data);
 
@@ -48,7 +48,7 @@ export class ViewAllBookComponent implements OnInit {
     });
   }
   updateBook() {
-    let postApi = 'http://localhost:8080/book/add';
+    let postApi = 'http://localhost:8081/book/add';
     this.http.post(postApi, this.selectedBook).subscribe(data => {
       console.log("saved");
       this.loadBooks();
