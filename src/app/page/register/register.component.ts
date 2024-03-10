@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,6 +19,7 @@ export class RegisterComponent implements OnInit {
   public selectedCountry: any;
   public selectedCountryCode: any;
   public isExistBorrower: any;
+  
 
   public borrowerObj={
     firstName:null,
@@ -29,7 +31,7 @@ export class RegisterComponent implements OnInit {
     contact:null
   }
 
-  constructor(private httpCliant: HttpClient) {
+  constructor(private httpCliant: HttpClient, public router:Router) {
     this.http = httpCliant;
   }
   ngOnInit(): void {
@@ -66,7 +68,11 @@ export class RegisterComponent implements OnInit {
           text:`${this.borrowerObj.userName} has been registerd !`,
           icon:"success"
         })
+
+       this.router.navigate(['/login'])
     })
+    
+
     }else{
       Swal.fire({
         title:"cant Register this borrower",
