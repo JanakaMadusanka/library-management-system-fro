@@ -6,8 +6,8 @@ import { RegisterComponent } from './page/register/register.component';
 import { TmplAstBoundDeferredTrigger } from '@angular/compiler';
 import { AddBorrowerComponent } from './page/add-borrower/add-borrower.component';
 import { BorrowersComponent } from './page/borrowers/borrowers.component';
-import { LendComponent } from './page/lend/lend.component';
 import { HomeComponent } from './page/home/home.component';
+import { BorrowBooksComponent } from './page/borrow-books/borrow-books.component';
 
 export const routes: Routes = [
     {
@@ -31,8 +31,8 @@ export const routes: Routes = [
         component : BorrowersComponent
     },
     {
-        path : "lend",
-        component : LendComponent
+        path : "borrow-books",
+        component : BorrowBooksComponent
     },
     {
         path : "home",
