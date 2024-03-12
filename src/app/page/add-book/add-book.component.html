@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="isbn">ISBN</span>
+        <input type="text" class="form-control" [(ngModel)]="bookObj.isbn" [ngModelOptions]="{standalone:true}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="title">Title</span>
+        <input type="text" class="form-control" [(ngModel)]="bookObj.title" [ngModelOptions]="{standalone:true}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="author">Author</span>
+        <input type="text" class="form-control" [(ngModel)]="bookObj.author" [ngModelOptions]="{standalone:true}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="category">Category</span>
+        <input type="text" class="form-control" [(ngModel)]="bookObj.category" [ngModelOptions]="{standalone:true}">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="isbn">Quantity</span>
+        <input type="text" class="form-control" [(ngModel)]="bookObj.qty" [ngModelOptions]="{standalone:true}">
+    </div>
+    <div class="input-group mb-3">
+        <input type="button" value="Add Book" class="btn btn-primary" (click)="addBook()">
+    </div>
+   
+</div>
