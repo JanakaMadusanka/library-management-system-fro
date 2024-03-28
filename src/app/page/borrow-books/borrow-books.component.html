@@ -1,1 +1,54 @@
-<p>borrow-books works!</p>
+<div class="container">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="User name" aria-label="User name" aria-describedby="button-addon2" [(ngModel)]="userName" [ngModelOptions]="{standalone:true}">
+        <button class="btn btn-success" type="button" id="button-addon2" (click)="searchBorrower()">Button</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>email</th>
+                <th>Phone Number</th>
+                <th>Cuntry</th>
+            </tr>           
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{borrower.userName}}</td>
+                <td>{{borrower.email}}</td>
+                <td>{{borrower.contact}}</td>
+                <td>{{borrower.Cuntry}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="borrower">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="User name" aria-label="Book ID" aria-describedby="button-addon2" [(ngModel)]="bookId" [ngModelOptions]="{standalone:true}">
+            <button class="btn btn-success" type="button" id="button-addon2" (click)="searchBook()">Button</button>
+        </div>
+    </div>
+
+    <table class="table table-bordered" *ngIf="searchBookRes">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+            </tr>           
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of cartList">
+                <td>{{book.id}}</td>
+                <td>{{book.ISBN}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.Category}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

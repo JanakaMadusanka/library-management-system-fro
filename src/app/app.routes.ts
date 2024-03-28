@@ -44,6 +44,10 @@ export const routes: Routes = [
         component : AddBookComponent
     },
     {
+        path : "borrow-books",
+        component : BorrowBooksComponent
+    },
+    {
         path : "",
         redirectTo : "login",
         pathMatch:"full"
