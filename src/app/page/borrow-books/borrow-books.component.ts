@@ -17,14 +17,6 @@ export class BorrowBooksComponent {
   public bookId:any;
   public searchBookRes:any;
 
-  public borrowBook:any={
-    borrowerId:"",
-    bookId:"",
-    date:new Date(),
-    fine:"",
-    qty:""
-  }
-
   public cartList:any = []
 
   constructor(private http: HttpClient) {}
@@ -59,6 +51,22 @@ export class BorrowBooksComponent {
       });
     })
   }
-//1.35
+
+  bookIds:any=[];
+
+  loadBookIds(){
+    this.cartList .forEach((element:any) => {
+      this.bookIds.push(element.id);
+    });
+  }
+  borrowBooks(){
+    const borrowBooks:any={
+      borrowId:this.borrower.id,
+      books:this.bookIds,
+      date:new Date(),
+      fine:""
+    }
+    console.log(borrowBooks);
+  }
 }
  

@@ -4,7 +4,7 @@
         <button class="btn btn-success" type="button" id="button-addon2" (click)="searchBorrower()">Button</button>
     </div>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" *ngIf="borrower">
         <thead>
             <tr>
                 <th>User Name</th>
@@ -23,8 +23,8 @@
         </tbody>
     </table>
 
-    <div *ngIf="borrower">
-        <div class="input-group mb-3">
+    <div>
+        <div class="input-group mb-3" *ngIf="borrower">
             <input type="text" class="form-control" placeholder="User name" aria-label="Book ID" aria-describedby="button-addon2" [(ngModel)]="bookId" [ngModelOptions]="{standalone:true}">
             <button class="btn btn-success" type="button" id="button-addon2" (click)="searchBook()">Button</button>
         </div>
@@ -50,5 +50,7 @@
             </tr>
         </tbody>
     </table>
+
+    <input type="button" value="Borrow Book" class="btn btn-primary" *ngIf="searchBookRes" (click)="borrowBooks()">
 </div>
 
