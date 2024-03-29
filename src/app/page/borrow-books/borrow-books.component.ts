@@ -66,7 +66,10 @@ export class BorrowBooksComponent {
       date:new Date(),
       fine:""
     }
-    console.log(borrowBooks);
+
+    this.http.post("http://localhost:8082/add-borrow-details",borrowBooks).subscribe(res=>{
+      console.log(res);
+    })
   }
 }
  

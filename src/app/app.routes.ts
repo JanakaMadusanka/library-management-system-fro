@@ -9,6 +9,7 @@ import { BorrowersComponent } from './page/borrowers/borrowers.component';
 import { HomeComponent } from './page/home/home.component';
 import { BorrowBooksComponent } from './page/borrow-books/borrow-books.component';
 import { AddBookComponent } from './page/add-book/add-book.component';
+import { ViewAllTransactionComponent } from './page/view-all-transaction/ViewAllTransactionComponent';
 
 export const routes: Routes = [
     {
@@ -46,6 +47,10 @@ export const routes: Routes = [
     {
         path : "borrow-books",
         component : BorrowBooksComponent
+    },
+    {
+        path : "view-all-transaction",
+        component : ViewAllTransactionComponent
     },
     {
         path : "",

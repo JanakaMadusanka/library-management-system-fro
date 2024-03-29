@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <th>Tracsaction ID</th>
+            <th>Borrower ID</th>
+            <th>Books</th>
+            <th>Date</th>
+            <th>Fine</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tracsaction of allTracsaction">
+                <td>{{tracsaction.id}}</td>
+                <td>{{tracsaction.borrowId}}</td>
+                <td>{{tracsaction.books}}</td>
+                <td>{{tracsaction.date}}</td>
+                <td>{{tracsaction.fine}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
